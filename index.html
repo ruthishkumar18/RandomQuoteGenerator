@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .quote-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote {
+            font-size: 1.8em;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-container">
+        <div class="quote" id="quote">"The best way to predict the future is to create it."</div>
+        <div class="author" id="author">- Abraham Lincoln</div>
+        <button class="button" id="new-quote">New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                quote: "The best way to predict the future is to create it.",
+                author: "Abraham Lincoln"
+            },
+            {
+                quote: "You must be the change you wish to see in the world.",
+                author: "Mahatma Gandhi"
+            },
+            {
+                quote: "In the middle of difficulty lies opportunity.",
+                author: "Albert Einstein"
+            },
+            {
+                quote: "Life is what happens when you're busy making other plans.",
+                author: "John Lennon"
+            },
+            {
+                quote: "Success is not the key to happiness. Happiness is the key to success.",
+                author: "Albert Schweitzer"
+            },
+            {
+                quote: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                quote: "It does not matter how slowly you go as long as you do not stop.",
+                author: "Confucius"
+            },
+            {
+                quote: "You miss 100% of the shots you don’t take.",
+                author: "Wayne Gretzky"
+            },
+            {
+                quote: "The journey of a thousand miles begins with one step.",
+                author: "Lao Tzu"
+            },
+            {
+                quote: "That which does not kill us makes us stronger.",
+                author: "Friedrich Nietzsche"
+            }
+        ];
+
+        const quoteElement = document.getElementById("quote");
+        const authorElement = document.getElementById("author");
+        const button = document.getElementById("new-quote");
+
+        // Function to get a random quote from the array
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quoteElement.innerText = `"${randomQuote.quote}"`;
+            authorElement.innerText = `- ${randomQuote.author}`;
+        }
+
+        // Generate a new random quote when the button is clicked
+        button.addEventListener("click", getRandomQuote);
+
+        // Generate an initial quote on page load
+        getRandomQuote();
+    </script>
+
+</body>
+</html>
